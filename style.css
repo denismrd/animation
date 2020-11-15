@@ -1,0 +1,334 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  padding: 20px;
+  font-size: 20px;
+}
+
+@media (max-width: 400px) {
+  body {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.border_shadow {
+  -webkit-box-shadow: 0px 0px 15px #8d8d8d;
+          box-shadow: 0px 0px 15px #8d8d8d;
+  border-radius: 3px;
+}
+
+.options {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  -webkit-perspective: 3000px;
+          perspective: 3000px;
+}
+
+.options input {
+  display: none;
+}
+
+.options input:checked ~ label .options-icon-dummy {
+  -webkit-transform: scale(100);
+          transform: scale(100);
+}
+
+.options input:checked ~ label .options-icon .icon-lines {
+  margin-left: 2.5px;
+}
+
+.options input:checked ~ label .options-icon .icon-lines .line-1 {
+  -webkit-transform: rotate(43deg);
+          transform: rotate(43deg);
+}
+
+.options input:checked ~ label .options-icon .icon-lines .line-2 {
+  visibility: hidden;
+}
+
+.options input:checked ~ label .options-icon .icon-lines .line-3 {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.options input:checked ~ .options-back {
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+  -webkit-transition: -webkit-transform 0.7s cubic-bezier(0.68, 0.47, 0.74, 1.47);
+  transition: -webkit-transform 0.7s cubic-bezier(0.68, 0.47, 0.74, 1.47);
+  transition: transform 0.7s cubic-bezier(0.68, 0.47, 0.74, 1.47);
+  transition: transform 0.7s cubic-bezier(0.68, 0.47, 0.74, 1.47), -webkit-transform 0.7s cubic-bezier(0.68, 0.47, 0.74, 1.47);
+}
+
+.options input:not(:checked) ~ .options-back {
+  -webkit-transform: rotateY(120deg);
+          transform: rotateY(120deg);
+  -webkit-transition: -webkit-transform 0.6s;
+  transition: -webkit-transform 0.6s;
+  transition: transform 0.6s;
+  transition: transform 0.6s, -webkit-transform 0.6s;
+}
+
+.options .options-icon {
+  position: absolute;
+  z-index: 600;
+  height: 43px;
+  width: 43px;
+  background-color: white;
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 0px 18px #8d8d8d;
+          box-shadow: 0px 0px 18px #8d8d8d;
+  top: 30px;
+  left: 30px;
+}
+
+@media (max-width: 400px) {
+  .options .options-icon {
+    top: 20px;
+    left: 20px;
+  }
+}
+
+.options .options-icon .icon-lines {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+}
+
+.options .options-icon .icon-lines .lines {
+  margin: 4px;
+  width: 18px;
+  height: 2px;
+  background-color: #666666;
+  -webkit-transition: -webkit-transform 0.7s;
+  transition: -webkit-transform 0.7s;
+  transition: transform 0.7s;
+  transition: transform 0.7s, -webkit-transform 0.7s;
+  -webkit-transform-origin: 0;
+          transform-origin: 0;
+}
+
+.options .options-icon-dummy {
+  top: 0;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: all 2s;
+  transition: all 2s;
+  background: #0ea301;
+  background: radial-gradient(circle, #0ea301 0%, #12d200 51%, #62ed56 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0ea301",endColorstr="#62ed56",GradientType=1);
+}
+
+.options .options-back {
+  position: absolute;
+  width: 50vw;
+  top: 0px;
+  left: 0px;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  z-index: 500;
+  background: #0b8e00;
+  background: -webkit-gradient(linear, left top, right top, from(#0b8e00), color-stop(51%, #12d200), to(#62ed56));
+  background: linear-gradient(90deg, #0b8e00 0%, #12d200 51%, #62ed56 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0b8e00",endColorstr="#62ed56",GradientType=1);
+  height: 100vh;
+  text-align: center;
+  padding-top: 180px;
+}
+
+@media (min-width: 600px) {
+  .options .options-back {
+    width: 35vw;
+  }
+}
+
+.options .options-back .options-text {
+  border-radius: 5px;
+  display: inline-block;
+  margin: 15px;
+  border: black solid 2px;
+  padding: 3px 26px;
+}
+
+.cards-section {
+  background-color: #d6d6d6;
+  text-align: center;
+  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
+          clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
+  padding-bottom: 10%;
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .cards-section {
+    -webkit-clip-path: polygon(0 0, 100% 0%, 100% 95%, 0% 100%);
+            clip-path: polygon(0 0, 100% 0%, 100% 95%, 0% 100%);
+    padding-bottom: 20%;
+  }
+}
+
+.cards-section .cardwrapper {
+  -webkit-perspective: 1700px;
+          perspective: 1700px;
+  position: relative;
+  margin: 50px;
+  display: inline-block;
+}
+
+.cards-section .cardwrapper:hover .card-front {
+  -webkit-transform: rotateY(-180deg) scale(1.03);
+          transform: rotateY(-180deg) scale(1.03);
+}
+
+.cards-section .cardwrapper:hover .card-back {
+  -webkit-transform: rotateY(0deg) scale(1.03);
+          transform: rotateY(0deg) scale(1.03);
+}
+
+.cards-section .cardwrapper .card {
+  height: 200px;
+  width: 150px;
+  padding: 10px;
+  -webkit-transition: -webkit-transform 0.8s;
+  transition: -webkit-transform 0.8s;
+  transition: transform 0.8s;
+  transition: transform 0.8s, -webkit-transform 0.8s;
+}
+
+.cards-section .cardwrapper .card-front {
+  position: relative;
+  z-index: 2;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.cards-section .cardwrapper .card-back {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.cards-section .cardwrapper .card-front-color-1 {
+  background-image: -webkit-gradient(linear, left top, right top, from(#23e923), to(green));
+  background-image: linear-gradient(to right, #23e923, green);
+}
+
+.cards-section .cardwrapper .card-back-color-1 {
+  background-image: -webkit-gradient(linear, left top, right top, from(#a73030), to(red));
+  background-image: linear-gradient(to right, #a73030, red);
+}
+
+.cards-section .cardwrapper .card-front-color-2 {
+  background-image: -webkit-gradient(linear, left top, right top, from(#23e923), to(green));
+  background-image: linear-gradient(to right, #23e923, green);
+}
+
+.cards-section .cardwrapper .card-back-color-2 {
+  background-image: -webkit-gradient(linear, left top, right top, from(#a73030), to(red));
+  background-image: linear-gradient(to right, #a73030, red);
+}
+
+.cards-section .cardwrapper .card-front-color-3 {
+  background-image: -webkit-gradient(linear, left top, right top, from(#23e923), to(green));
+  background-image: linear-gradient(to right, #23e923, green);
+}
+
+.cards-section .cardwrapper .card-back-color-3 {
+  background-image: -webkit-gradient(linear, left top, right top, from(#a73030), to(red));
+  background-image: linear-gradient(to right, #a73030, red);
+}
+
+.cards-section .buttonwrapper {
+  display: inline-block;
+  margin: 20px;
+  position: relative;
+  text-transform: capitalize;
+}
+
+.cards-section .buttonwrapper .button {
+  padding: 5px 30px;
+  background-image: -webkit-gradient(linear, left top, right top, from(#a73030), to(red));
+  background-image: linear-gradient(to right, #a73030, red);
+  color: white;
+  border-radius: 50px;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+}
+
+.cards-section .buttonwrapper::after {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  content: "click me";
+  padding: 5px 30px;
+  background-image: -webkit-gradient(linear, left top, right top, from(#a73030), to(red));
+  background-image: linear-gradient(to right, #a73030, red);
+  opacity: 0.3;
+  color: transparent;
+  border-radius: 50px;
+}
+
+.cards-section .buttonwrapper:hover::after {
+  -webkit-box-shadow: 0px 2px 25px #8d8d8d;
+          box-shadow: 0px 2px 25px #8d8d8d;
+  -webkit-animation: button;
+          animation: button;
+  -webkit-animation-duration: 0.25s;
+          animation-duration: 0.25s;
+}
+
+.cards-section .buttonwrapper:hover .button {
+  -webkit-transform: scale(1.08);
+          transform: scale(1.08);
+}
+
+@-webkit-keyframes button {
+  50% {
+    -webkit-transform: scaleX(1.4) scaleY(1.3);
+            transform: scaleX(1.4) scaleY(1.3);
+  }
+  80% {
+    -webkit-transform: scaleX(1.6) scaleY(1.5);
+            transform: scaleX(1.6) scaleY(1.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes button {
+  50% {
+    -webkit-transform: scaleX(1.4) scaleY(1.3);
+            transform: scaleX(1.4) scaleY(1.3);
+  }
+  80% {
+    -webkit-transform: scaleX(1.6) scaleY(1.5);
+            transform: scaleX(1.6) scaleY(1.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+/*# sourceMappingURL=style.css.map */
