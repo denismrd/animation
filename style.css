@@ -7,7 +7,6 @@
 
 body {
   padding: 20px;
-  font-size: 20px;
 }
 
 @media (max-width: 400px) {
@@ -140,14 +139,16 @@ body {
   left: 0px;
   -webkit-transform-origin: 0 0;
           transform-origin: 0 0;
+  border-right: white 6px solid;
+  -webkit-box-shadow: 2px 0 25px #3f3f3f;
+          box-shadow: 2px 0 25px #3f3f3f;
   z-index: 500;
-  background: #0b8e00;
-  background: -webkit-gradient(linear, left top, right top, from(#0b8e00), color-stop(51%, #12d200), to(#62ed56));
-  background: linear-gradient(90deg, #0b8e00 0%, #12d200 51%, #62ed56 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0b8e00",endColorstr="#62ed56",GradientType=1);
+  background: #020022;
+  background: -webkit-gradient(linear, left top, right top, from(#020022), color-stop(34%, #030041), to(#050077));
+  background: linear-gradient(90deg, #020022 0%, #030041 34%, #050077 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020022",endColorstr="#050077",GradientType=1);
   height: 100vh;
   text-align: center;
-  padding-top: 180px;
 }
 
 @media (min-width: 600px) {
@@ -156,12 +157,55 @@ body {
   }
 }
 
-.options .options-back .options-text {
-  border-radius: 5px;
+.options .options-back .options-text-wrapper {
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.options .options-back .options-text-wrapper .options-text {
+  text-align: center;
+  text-transform: uppercase;
+  top: 0;
+  left: 0;
+  position: relative;
+  width: 100px;
   display: inline-block;
-  margin: 15px;
-  border: black solid 2px;
-  padding: 3px 26px;
+  color: #bbbbbb;
+  border: transparent solid 2px;
+  padding: 5px 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.options .options-back .options-text-wrapper .options-text:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+.options .options-back .options-text-wrapper .options-text::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: inline-block;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #bbbbbb;
+}
+
+.options .options-back .options-text-wrapper .options-text:hover {
+  color: white;
+  border: white solid 2px;
+  border-radius: 5px;
+  -webkit-transform: translate(1.5px, -1.5px);
+          transform: translate(1.5px, -1.5px);
+}
+
+.options .options-back .options-text-wrapper .options-text:hover::after {
+  display: none;
 }
 
 .cards-section {
